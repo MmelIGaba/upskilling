@@ -29,19 +29,33 @@ url: https://www.hackerrank.com/challenges/caesar-cipher-1/problem?isFullScreen=
 
 function caesarCipher(s, k) {
   // Write your code here
-  let alphabet = "abcdefghijklmnopqrstuvwxyz";
-  let rotatedAlphabet = "";
-//   let tempStr = s.toLowerCase();
+  let [alphabet, rotatedAlphabet, encryptedMessage] = [
+    "abcdefghijklmnopqrstuvwxyz",
+    "",
+    "",
+  ];
+  lengthOfAlphabets = alphabet.length;
+
+
+  if (k > lengthOfAlphabets) {
+    k -= lengthOfAlphabets;
+  }
+  if(k > lengthOfAlphabets*2){
+    k -= Math.floor(k/lengthOfAlphabets) * lengthOfAlphabets;
+  }
+  if (k > lengthOfAlphabets) {
+    k -= lengthOfAlphabets;
+  }
+
+  // console.log(k, lengthOfAlphabets);
   const carryStr = alphabet.substring(0, k);
-  let encryptedMessage = "";
-  for (let i = k; i < 26; i++) {
+  for (let i = k; i < lengthOfAlphabets; i++) {
     rotatedAlphabet += alphabet[i];
   }
   rotatedAlphabet += carryStr;
   rotatedAlphabet = rotatedAlphabet.trim();
   for (let i = 0; i < s.length; i++) {
     if (/[a-z]|[A-Z]/.test(s[i])) {
-    //   console.log(s[i]);
       if (s[i] === s[i].toUpperCase()) {
         let temp = s;
         s = s.toLowerCase();
@@ -55,11 +69,12 @@ function caesarCipher(s, k) {
       encryptedMessage += s[i];
     }
   }
-  //   console.log(alphabet, "\n", rotatedAlphabet);
+  // console.log("\n", alphabet, "\n", rotatedAlphabet);
+  console.log(k)
   return encryptedMessage;
 }
-const k = 4;
-const s = "Hello_World!";
+const k = 62;
+const s = "!w-bL`-yX!.G`mVKmFlX/MaCyyvSS!CSwts.!g/`He`eJk1DGZBa`eBLdyu`hZD`vV-jZDm.LCBSre..-!.!dmv!-E";
 console.log(caesarCipher(s, k));
 // let text = "Hello world!";
 // let result = text.substring(0, k);
