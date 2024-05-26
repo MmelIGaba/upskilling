@@ -26,28 +26,53 @@ int: the minimum number of characters to change or -1.
  */
 
 function anagram(s) {
-  // Write your code here
-  let halfLen = s.length;
-  if (halfLen % 2 !== 0) {
+  if (s.length % 2 !== 0) {
     return -1;
   }
 
-  halfLen /= 2;
-  let [str1, str2, count] = [
-    s.substring(0, halfLen).split(""),
-    s.substring(halfLen, halfLen * 2).split(""),
-    0,
-  ];
-  str1.sort();
-  str2.sort();
-  for (let i = 0; i < halfLen; i++) {
-    if (str1[i] === str2[i]) {
-      continue;
-    }
-    count++;
+  const halfLen = s.length / 2;
+
+  let [str1, str2] = [s.substring(0, halfLen), s.substring(halfLen)];
+
+  let count = 0;
+
+  const charCount = {};
+  for (let i = 0; i < str2.length; i++) {
+    charCount[str2[i]] = (charCount[str2[i]] || 0) + 1;
   }
+  for (let i = 0; i < halfLen; i++) {
+    if (charCount[str1[i]] > 0) {
+      charCount[str1[i]]--;
+    } else {
+      count++;
+    }
+  }
+
   return count;
 }
+// function anagram(s) {
+//   // Write your code here
+//   let halfLen = s.length;
+//   if (halfLen % 2 !== 0) {
+//     return -1;
+//   }
+
+//   halfLen /= 2;
+//   let [str1, str2, count] = [
+//     s.substring(0, halfLen),
+//     s.substring(halfLen, halfLen * 2),
+//     0,
+//   ];
+  
+//   for (let i = 0; i < halfLen; i++) {
+//     if (!str2.includes(str1[i])) {
+//       count++;
+//       continue;
+//     }
+//   }
+//   console.log(str1, "___", str2);
+//   return count;
+// }
 console.log(anagram("aaabbb"));
 console.log(anagram("ab"));
 console.log(anagram("abc"));
@@ -56,5 +81,5 @@ console.log(anagram("xyyx"));
 console.log(anagram("xaxbbbxx"));
 console.log();
 console.log(anagram("asdfjoieufoa"));
-console.log(anagram("fdhlvosfpafhalll"));
+console.log(anagram("fdhlvosfpafhalll")); //
 console.log(anagram("mvdalvkiopaufl"));
