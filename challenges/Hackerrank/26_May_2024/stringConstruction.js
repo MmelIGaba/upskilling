@@ -29,16 +29,23 @@ Constraints
  * The function accepts STRING s as parameter.
  */
 
+// function stringConstruction(s) {
+//   // Write your code here
+//   let newStr = s[0];
+//   for (let i = 1; i < s.length; i++) {
+//     newStr += s[i];
+//     if (newStr !== s.substring(i + 1, newStr.length)) {
+//       i = newStr.length;
+//     }
+//   }
+//   console.log("\n", newStr, "\n", s);
+//   return newStr.length;
+// }
 function stringConstruction(s) {
-  // Write your code here
-  let newStr = s[0];
-  for (let i = 1; i < s.length; i++) {
-    newStr += s[i];
-    if (newStr !== s.substring(i + 1, newStr.length)) {
-      i = newStr.length;
-    }
-  }
-  console.log("\n", newStr, "\n", s);
-  return newStr.length;
+  let uniqueChars = new Set(s);
+
+  return uniqueChars.size;
 }
-console.log(stringConstruction("abababa"));
+
+// Test the function with an example string
+console.log(stringConstruction("abababab")); // Output should be 2
