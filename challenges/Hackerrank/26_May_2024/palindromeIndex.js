@@ -28,5 +28,8 @@ int: the index of the character to remove or
 
 function palindromeIndex(s) {
     // Write your code here
-
-}
+    if(s === s.split('').reverse().join().replaceAll(',', '')){
+        return -1;
+    }
+    return 'op';
+}console.log(palindromeIndex('aba'))

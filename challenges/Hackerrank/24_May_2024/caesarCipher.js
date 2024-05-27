@@ -36,12 +36,11 @@ function caesarCipher(s, k) {
   ];
   lengthOfAlphabets = alphabet.length;
 
-
   if (k > lengthOfAlphabets) {
     k -= lengthOfAlphabets;
   }
-  if(k > lengthOfAlphabets*2){
-    k -= Math.floor(k/lengthOfAlphabets) * lengthOfAlphabets;
+  if (k > lengthOfAlphabets * 2) {
+    k -= Math.floor(k / lengthOfAlphabets) * lengthOfAlphabets;
   }
   if (k > lengthOfAlphabets) {
     k -= lengthOfAlphabets;
@@ -70,12 +69,17 @@ function caesarCipher(s, k) {
     }
   }
   // console.log("\n", alphabet, "\n", rotatedAlphabet);
-  console.log(k)
+  // console.log(k)
   return encryptedMessage;
 }
-const k = 62;
-const s = "!w-bL`-yX!.G`mVKmFlX/MaCyyvSS!CSwts.!g/`He`eJk1DGZBa`eBLdyu`hZD`vV-jZDm.LCBSre..-!.!dmv!-E";
-console.log(caesarCipher(s, k));
+
+// const k = 7;
+// const s = "!w-bL`-yX!.G`mVKmFlX/MaCyyvSS!CSwts.!g/`He`eJk1DGZBa`eBLdyu`hZD`vV-jZDm.LCBSre..-!.!dmv!-E";
+// console.log(caesarCipher(message, k));
+// console.log(reverseString("anastasia"), reverseString("a nap"));
+// console.log(reverseString("anastasia"), reverseString("a nap"));
+// console.log('\n');
 // let text = "Hello world!";
 // let result = text.substring(0, k);
 // console.log(result)
+module.exports = { caesarCipher };
