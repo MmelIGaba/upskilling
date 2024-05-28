@@ -45,7 +45,7 @@ function missingNumbers(arr, brr) {
     for (let i = 0; i < brr.length; i++) {
       obj2[brr[i]] = (obj2[brr[i]] || 0) + 1;
     }
-  //   console.log(obj1, obj2);
+    console.log(obj1, obj2);
       for(let i = 0; i < x.length; i ++){
           if(obj1[x[i]] !== obj2[x[i]]){
               count.push(Number(x[i]));
