@@ -32,7 +32,13 @@ int[2]: the indices of the prices of the two flavors they buy, sorted ascending
 
 function icecreamParlor(m, arr) {
   // Write your code here
-    while()
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let ii = i + 1; ii < arr.length - 1; ii++) {
+      if (arr[i] + arr[ii] === m) {
+        return [i, ii];
+      }
+    }
+  }
 }
 const m = 6;
 const arr = [1, 3, 4, 5, 6];
